@@ -10,23 +10,14 @@ export enum ENV {
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleInit, OnModuleDestroy {
-  constructor(private configService: ConfigService) {
+  // constructor(private configService: ConfigService) {
+  constructor() {
     super({
       log: ["query", "error", "info", "warn"],
       errorFormat: "pretty",
-      datasourceUrl: (() => {
-        const isDevelopment = this.configService.get("ENV") === ENV.DEV
-
-        if (isDevelopment) {
-          // sqlite
-          return this.configService.get("DATABASE_URL")
-        }
-
-        return "postgresql://johndoe:randompassword@localhost:5432/mydb?schema=public"
-      })(),
     })
 
-    this.configService = configService
+    // this.configService = configService
   }
 
   async onModuleInit() {

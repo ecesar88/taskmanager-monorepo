@@ -1,6 +1,6 @@
 import { BadRequestException, Injectable, InternalServerErrorException, Logger } from "@nestjs/common"
 import { User } from "@prisma/client"
-import { PrismaService } from "src/prisma/PrismaService.service"
+import { PrismaService } from "src/prisma/prisma.service"
 
 @Injectable()
 export class UserService {

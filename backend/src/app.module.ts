@@ -12,24 +12,25 @@ import { join } from "node:path"
 
 @Module({
   imports: [
+    UserModule,
     ConfigModule.forRoot({
       envFilePath: [".env", ".env.development"],
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-      autoSchemaFile: join(process.cwd(), "src/schema.gql"),
+      sortSchema: true,
+      autoSchemaFile: join(process.cwd(), "src/graphql/schema.gql"),
     }),
-    UserModule,
   ],
   controllers: [AppController, UserController],
   providers: [PrismaService, AppService, UserService],
 })
 export class AppModule {}
 
-function countArray(array: any[]) {
-  if (!array.length) return 0
-  return 1 + countArray(array.slice(1))
-}
+// function countArray(array: any[]) {
+//   if (!array.length) return 0
+//   return 1 + countArray(array.slice(1))
+// }
 
 // defmodule Length do
 //   def of([]), do: 0

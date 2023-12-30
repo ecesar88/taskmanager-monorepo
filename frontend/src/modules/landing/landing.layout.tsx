@@ -3,7 +3,7 @@ import background from ".././../assets/Abstract_digital_wave_of_particles_backgr
 import { useNavigate } from "react-router-dom";
 import { ROUTES } from "../../config/routes";
 
-export const Home = () => {
+export const Landing = () => {
   const navigate = useNavigate();
 
   const handleRouteToApplication = () => {

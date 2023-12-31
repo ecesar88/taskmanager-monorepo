@@ -7,7 +7,7 @@ export const Landing = () => {
   const navigate = useNavigate();
 
   const handleRouteToApplication = () => {
-    navigate(ROUTES.APPLICATION_HOME);
+    navigate(ROUTES.HOME);
   };
 
   return (

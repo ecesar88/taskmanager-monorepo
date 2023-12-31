@@ -1,6 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import defaultColors from "./theme/defaultColors";
-import { CustomButton } from "./theme/components/Button";
+import { CustomButton, CustomIconButton } from "./theme/components";
 
 const customTheme = extendTheme({
   colors: defaultColors,
@@ -10,6 +10,7 @@ const customTheme = extendTheme({
   },
   components: {
     Button: CustomButton,
+    IconButton: CustomIconButton,
   },
 });
 

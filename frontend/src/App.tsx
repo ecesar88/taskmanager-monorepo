@@ -3,18 +3,25 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import { ROUTES } from "./config/routes";
 import customTheme from "./config/theme";
+import { AppRootWrapper } from "./modules/app/AppRootWrapper/AppRootWrapper.layout";
 import { Landing } from "./modules/landing/landing.layout";
-import { Home } from "./modules/app/home/home.layout";
+import { Calendar } from "./modules/app/calendar";
 
 export default function App() {
   const router = createBrowserRouter([
     {
-      path: ROUTES.HOME,
+      path: ROUTES.LANDING_PAGE,
       element: <Landing />,
     },
     {
-      path: ROUTES.APPLICATION_HOME,
-      element: <Home />,
+      path: ROUTES.HOME,
+      element: <AppRootWrapper />,
+      children: [
+        {
+          path: ROUTES.CALENDAR,
+          element: <Calendar />,
+        },
+      ],
     },
   ]);
 

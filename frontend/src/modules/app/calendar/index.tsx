@@ -88,7 +88,9 @@ export const Calendar = () => {
       const currentYear = getYear(currentDate);
       const currentMonth = getMonth(currentDate);
 
-      const parsedMonth = appendZeroToIfLessThan10(currentMonth + 1); // The month is zero-indexed, 0 = January
+      // The month is zero-indexed, 0 = January so we need to add 1, because
+      // the date parsing doesn't work with the following format: 2024-00-12
+      const parsedMonth = appendZeroToIfLessThan10(currentMonth + 1);
       const parsedDay = appendZeroToIfLessThan10(dayNumber);
 
       const parsedDayDate = parseISO(
@@ -115,15 +117,36 @@ export const Calendar = () => {
     <Flex direction="column" w="100%" gap="0.5rem">
       <Flex w="100%" justifyContent="space-between">
         {DAYS_OF_WEEK.map((dayOfWeek) => (
-          <Box key={dayOfWeek}>{dayOfWeek}</Box>
+          <Flex
+            w="100%"
+            justifyContent={"center"}
+            alignItems={"center"}
+            key={dayOfWeek}
+          >
+            {dayOfWeek}
+          </Flex>
         ))}
       </Flex>
 
-      <Flex wrap="wrap">
+      <Box
+        display="grid"
+        gridTemplateColumns="repeat(7, 1fr)"
+        bgColor="limegreen"
+      >
         {Object.values(a).map((i) => {
-          return <Flex key={i.dateString}>{i.dateString}</Flex>;
+          return (
+            <Flex
+              border="1px solid red"
+              style={{ margin: '-1px' }}
+              bgColor="lightseagreen"
+              h="190px"
+              key={i.dateString}
+            >
+              {i.dateString}
+            </Flex>
+          );
         })}
-      </Flex>
+      </Box>
     </Flex>
   );
 };

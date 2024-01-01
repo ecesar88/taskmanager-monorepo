@@ -24,16 +24,17 @@ export const AppRootWrapper = () => {
 
       <Flex w="100%" minH="100%" gap="1rem" flex={1}>
         <Flex
-          flex={1.5}
-          flexGrow={1.5}
+          flex={1}
+          flexGrow={1}
           bgColor={bgDark500}
           borderRadius="0.5rem"
         >
           <SideBar />
+
         </Flex>
 
         <Flex
-          flex={10}
+          flex={11}
           bgColor={bgDark500}
           borderRadius="0.5rem"
           padding="1rem"

@@ -9,7 +9,7 @@ const SideBar = () => {
   const navigate = useNavigate();
 
   return (
-    <Flex w="100%" h="100%" padding="1rem" direction="column" gap="1rem">
+    <Flex w="100%" h="100%" padding="0.5rem" direction="column" gap="1rem">
       <SideBarButton
         lefticon={<BiTask size="1.3rem" />}
         onClick={() => {
